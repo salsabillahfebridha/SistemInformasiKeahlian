@@ -1,0 +1,328 @@
+<!--
+    Salsabillah Febridha
+    2210512070
+    S-1 Sistem Informasi B
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Peminatan</title>
+    <link rel="icon" href="LOGO UPNVJ.png">
+</head>
+ 
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .container form {
+        background-color: rgb(238, 238, 238);
+    }
+
+    .container table {
+        border-collapse: collapse;
+    }
+
+    .container table td {
+        padding: 10px;
+    }
+
+    .bio td {
+        text-align: center;
+    }
+
+    .bio th {
+        padding: 20px;
+        background-color: rgb(71, 145, 255);
+        color: white;
+    }
+
+    .bio input {
+        padding: 10px;
+        width: 90%;
+    }
+
+    #peminatan {
+        padding: 10px;
+        width: 90%;
+        font-size: 15px;
+    }
+
+    #peminatan option {
+        font-size: 15px;
+    }
+
+    .container button {
+        margin: 30px auto;
+        display: block;
+        padding: 10px;
+        width: 80%;
+        background-color: blue;
+        color: white;
+        border: none;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .table-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .pilih-matkul {
+        border-collapse: collapse;
+        margin: 0 auto;
+        padding: 0;
+        width: 90%;
+        border: 1px solid grey;
+    }
+
+    .pilih-matkul th {
+        background-color: transparent;
+        color: black;
+        font-size: medium;
+        text-align: left;
+    }
+
+    .pilih-matkul td {
+        border-collapse: collapse;
+        text-align: left;
+    }
+    
+    .matkul {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <form id="DataMhs" onsubmit="return HasilForm(event);">
+            <table class="bio">
+                <tr>
+                    <th>
+                        FORM PENGISIAN PEMINATAN KEAHLIAN<br>FAKULTAS ILMU KOMPUTER UPN<br>"VETERAN" JAKARTA<br>
+                        <img src="LOGO UPNVJ.png" width="30px">
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" id="nim" name="nim" placeholder="NIM Mahasiswa">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" id="nama" name="nama" placeholder="Nama Mahasiswa">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" id="semester" name="semester" placeholder="Semester Mahasiswa">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <select id="peminatan">
+                            <option value="" disabled selected>Pilih Program Studi</option>
+                            <option value="d3">D3 Sistem Informasi</option>
+                            <option value="si">S1 Sistem Informasi</option>
+                            <option value="if">S1 Informatika</option>
+                          </select>
+                    </td>
+                </tr>
+
+                <tr class="matkul peminatan-d3">
+                    <td class="table-container">
+                        <table class="pilih-matkul">
+                            <tr>
+                                <th colspan="2">Pilih Mata Kuliah Peminatan D3 SI</th>
+                            </tr>
+                            <tr>
+                                <td><label for="MP">Mobile Programmer</label></td>
+                                <td style="padding-right: 100px;"><input type="checkbox" name="matkul" value="Mobile Programmer"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="WD">Web Developer</label></td>
+                                <td style="padding-right: 100px;"><input type="checkbox" name="matkul" value="Web Developer"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr class="matkul peminatan-si">
+                    <td class="table-container">
+                        <table class="pilih-matkul">
+                            <tr>
+                                <th colspan="2">Pilih Mata Kuliah Peminatan S1 SI</th>
+                            </tr>
+                            <tr>
+                                <td><label for="DA">Data Analyst</label></td>
+                                <td style="padding-right: 100px;"><input type="checkbox" name="matkul" value="Data Analyst"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="AU">Audit Sistem Informasi</label></td>
+                                <td style="padding-right: 100px;"><input type="checkbox" name="matkul" value="Audit Sistem Informasi"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="AD">Aplication Developer</label></td>
+                                <td style="padding-right: 100px;"><input type="checkbox" name="matkul" value="Aplication Developer"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr class="matkul peminatan-if">
+                    <td class="table-container">
+                        <table class="pilih-matkul">
+                            <tr>
+                                <th colspan="2">Pilih Mata Kuliah Peminatan S1 IF</th>
+                            </tr>
+                            <tr>
+                                <td><label for="CS">Cyber Security</label></td>
+                                <td style="padding-right: 100px;"><input type="checkbox" name="matkul" value="Cyber Security"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="SE">Software Engineer</label></td>
+                                <td style="padding-right: 100px;"><input type="checkbox" name="matkul" value="Software Engineer"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="DE">Data Engineer</label></td>
+                                <td style="padding-right: 100px;"><input type="checkbox" name="matkul" value="Data Engineer"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr> 
+                
+                <tr>
+                    <td>
+                        <button type="submit">Submit</button>
+                        <button type="button" onclick="HalamanUtama();">Kembali</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script>
+    function HalamanUtama() {
+        window.close();
+    }
+
+    // Menambahkan event listener pada dropdown peminatan
+    const dropdownPeminatan = document.getElementById('peminatan');
+    dropdownPeminatan.addEventListener('change', (e) => {
+        const selectedPeminatan = e.target.value;
+        const matkulSelector = document.querySelectorAll('.matkul');
+            
+        matkulSelector.forEach((matkul) => {
+            matkul.classList.remove('show');
+        });
+
+        const selectedMatkul = document.querySelector(`.peminatan-${selectedPeminatan}`);
+        if (selectedMatkul) {
+            selectedMatkul.classList.add('show');
+        }
+    });
+
+    function HasilForm(event) {
+        event.preventDefault();
+
+        // Mengambil hasil input dari form
+        const nim = document.getElementById("nim").value;
+        const nama = document.getElementById("nama").value;
+        const semester = document.getElementById("semester").value;
+        const lab = document.getElementById("peminatan").value;
+
+        // Mengubah value lab
+        const labelLab = {
+            d3: "D3 Sistem Informasi",
+            si: "S1 Sistem Informasi",
+            if: "S1 Informatika"
+        };
+        const jurusan = labelLab[lab];
+
+        // Validasi form input
+        if (nim === '') {
+            alert("NIM Anda Belum Diisi!")
+            document.getElementById("nim").focus();
+            return false;
+        } 
+        else if (!/^\d+$/.test(nim)) {
+            alert("NIM Hanya Boleh Berisi Angka!");
+            document.getElementById("nim").focus();
+            return false;
+        }
+        else if (nama === '') {
+            alert("Nama Anda Belum Diisi!")
+            document.getElementById("nama").focus();
+            return false;
+        } 
+        else if (semester === ''){
+            alert("Semester Anda Belum Diisi!")
+            document.getElementById("semester").focus();
+            return false;
+        }
+        else if (!/^\d+$/.test(semester)) {
+            alert("Semester Hanya Boleh Berisi Angka!");
+            document.getElementById("semester").focus();
+            return false;
+        }
+        else if (parseInt(semester) <= 2) {
+            alert("Mahasiswa Belum Bisa Mengajukan Peminatan!\nHarus Semester 2 Ke Atas!");
+            document.getElementById("semester").focus();
+            return false;
+        }
+        else {
+            const checkboxes = document.querySelectorAll('input[name="matkul"]:checked');
+            let isChecked = false;
+            let matkul = [];
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    isChecked = true;
+                    matkul.push(checkbox.value);
+                    }
+            });
+
+            if (!isChecked) {
+                alert("Minimal satu mata kuliah harus dipilih!");
+                return false;
+            }
+
+            // Membuat objek dari hasil input
+            const urlData = new URLSearchParams ({
+                nim: nim,
+                nama: nama,
+                semester: semester,
+                lab: jurusan,
+                matkul: matkul.join(',')
+            });
+            
+            window.open("HasilForm.html?" + urlData.toString(), "_blank");
+        }
+
+        return false;
+    }
+    </script>
+</body>
+</html>

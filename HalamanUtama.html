@@ -1,0 +1,196 @@
+<!--
+    Salsabillah Febridha
+    2210512070
+    S-1 Sistem Informasi B
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Utama</title>
+    <link rel="icon" href="LOGO UPNVJ.png">
+</head>
+
+<style>
+    * { 
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    header h5 {
+        text-align: center;
+        color: white;
+        background-color: darkblue;
+        padding: 10px;
+    }
+    .container {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .container table {
+        border-collapse: collapse;
+    }
+    .container table td {
+        padding: 5px;
+    }
+    .container table.main td {
+        padding: 20px;
+        vertical-align: top;
+    }
+    .container table td h4 {
+        color: rgb(83, 83, 255);
+    }
+    .container table td.main h1{
+        margin-bottom: 30px;
+    }
+    .container table td.main p{
+        margin-bottom: 40px;
+        font-size: small;
+    }
+    .container table td.main button{
+        padding: 10px;
+        border-radius: 5px;
+        margin-right: 5px;
+        cursor: pointer;
+        border: 1px solid grey;
+    }
+
+    #button-peminatan {
+        background-color: rgb(0, 102, 255);
+        color: white;
+    }
+
+    .modal {
+        display: none; /* Modal akan disembunyikan secara default */
+        position: fixed; /* Modal akan muncul pada posisi tetap di jendela browser */
+        z-index: 1; /* Menentukan urutan tumpang tindih modal di atas konten lain */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* Memberikan kemampuan untuk menggulir saat konten melebihi ukuran modal */
+        background-color: rgba(0,0,0,0.4); /* Memberikan latar belakang hitam semi-transparan */
+    }
+
+    /* Gaya untuk konten modal */
+    .data {
+        background-color: #fefefe; /* Warna latar belakang konten modal */
+        margin: 15% auto; /* Menempatkan modal di tengah vertikal dan horizontal */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Lebar konten modal */
+    }
+
+    /* Gaya untuk tombol penutup modal */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+</style>
+
+<body>
+    <header>
+        <a href="https://new-fik.upnvj.ac.id/">
+            <h5>Ini adalah Ujian Tengah Semester Pemrograman Web. Klik ini untuk ke laman 
+                Fakultas Ilmu Komputer UPN "Veteran" Jakarta &#8594;
+            </h5>
+        </a>
+    </header>
+
+    <div class="container">
+        <table>
+            <tr>
+                <td>
+                    <img src="LOGO UPNVJ.png" width="30px">
+                </td>
+                <td>
+                    <h4>Sistem Peminatan Fakultas Ilmu Komputer Universitas Pembangunan Nasional "Veteran" Jakarta</h4>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container">
+        <table class="main">
+            <tr>
+                <td class="main">
+                    <h1><font color="darkblue">Selamat Datang Pada<br>Sistem Peminatan<br>Keahlian </font><font color="orange">Fakultas Ilmu<br>
+                        Komputer</font><font color="blue"> UPN <br>"Veteran" Jakarta</font>
+                    </h1>
+                    <p>
+                        Sistem ini sebagai tolak ukur untuk pemahaman diri saya <br>
+                        terhadap materi pemrograman web sistem informasi.
+                    </p>
+                    <button type="submit" id="button-peminatan" onclick="FormPeminatan();">Mulai Mengisi Peminatan ></button>
+                    <button type="button" onclick="DataDiri();">Daftar Diri</button>
+                </td>
+                <td>
+                    <img src="FIK.jpeg" width="350">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="TampilDataDiri" class="modal">
+        <div class="data">
+            <span class="close" onclick="TutupDataDiri()">&times;</span>
+            <table>
+                <tr>
+                    <td style="padding-bottom: 15px;"><h3>Daftar Diri UPN "Veteran" Jakarta</h3></td>
+                    <td style="padding-bottom: 15px; padding-left: 15px;"><img src="LOGO UPNVJ.png" width="30px"></td>
+                </tr>
+                <tr>
+                    <td><h4>Mahasiswa Sistem Informasi Ilmu Komputer</h4></td>
+                </tr>
+                <tr>
+                    <td>Nama</td>
+                    <td>: Salsabillah Febridha</td>
+                </tr>
+                <tr>
+                    <td>NIM</td>
+                    <td>: 2210512070</td>
+                </tr>
+                <tr>
+                    <td>Program Studi</td>
+                    <td>: Sistem Informasi</td>
+                </tr>
+            </table>
+        </div>
+      </div>
+
+    <script>
+        function FormPeminatan () {
+            window.open(
+                "HalamanPeminatan.html",
+                ""
+            );
+        }
+
+        function DataDiri() {
+            var modal = document.getElementById('TampilDataDiri');
+            modal.style.display = 'block';
+        }
+        
+        function TutupDataDiri() {
+            var modal = document.getElementById('TampilDataDiri');
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

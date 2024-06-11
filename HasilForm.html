@@ -1,0 +1,109 @@
+<!-- 
+    Salsabillah Febridha
+    2210512070
+    S-1 Sistem Informasi B
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pengisian Formulir</title>
+    <link rel="icon" href="LOGO UPNVJ.png">
+</head> 
+
+<style>
+    table {
+        margin: 0 auto;
+        padding: 10px;
+        border-collapse: collapse;
+        width: 50%;
+        
+    }
+
+    table td {
+        padding: 10px 10px;
+    }
+
+    #kembaliButton {
+        display: block;
+        margin: 20px auto 0 auto; 
+        margin-right: 25%;
+        padding: 10px 20px;
+        background-color: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+        text-align: right;
+    }
+</style>
+
+<body>
+    <table border="1">
+        <tr>
+            <td style="text-align: center;">
+                <h3 style="padding-bottom: 5px;">Hasil Pengajuan Peminatan Mata Kuliah</h3>
+                <h3>UPN "Veteran Jakarta<img src="LOGO UPNVJ.png" width="25px" style="padding-left: 10px;"></h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Nim : <b id="nim"></b></p>
+                <p>Nama : <b id="nama"></b></p>
+                <p>Jurusan : <b id="lab"></b></p>
+                <p>Tahun Masuk : <b id="angkatan"></b></p>
+                <p>
+                    Mata Kuliah yang di pilih :
+                    <ul id="matkul"></ul>
+                </p>
+            </td>
+        </tr>
+    </table>
+
+    <button id="kembaliButton" type="button" onclick="HalamanUtama();">Kembali</button>
+
+    <script>
+        function HalamanUtama() {
+            window.close();
+        }
+
+        // Mengambil parameter yang tersimpan di dalam url
+        const urlData = new URLSearchParams(window.location.search);
+        const nim = urlData.get('nim');
+        const nama = urlData.get('nama');
+        const semester = urlData.get('semester');
+        const lab = urlData.get('lab');
+        const matkul = urlData.get('matkul').split(',');
+        
+        // Menghitung tahun masuk
+        class HitungAngkatan {
+            constructor(semester) {
+                this.semester = semester;
+            }
+
+            getTahunMasuk(TahunSekarang) {
+                return TahunSekarang - Math.floor(this.semester / 2);
+            }
+        }
+        
+        const hitungAngkatan = new HitungAngkatan(parseInt(semester));
+        const year = new Date().getFullYear();
+        const tahunMasuk = hitungAngkatan.getTahunMasuk(year);
+
+        // Memasukkan data ke dalam halaman html
+        document.getElementById("nim").innerText = nim;
+        document.getElementById("nama").innerText = nama;
+        document.getElementById("lab").innerText = lab;
+        document.getElementById("angkatan").innerText = tahunMasuk;
+
+        // Menampilkan mata kuliah yang diambil
+        const mataKuliahContainer = document.getElementById("matkul");
+        matkul.forEach(mk => {
+            const listItem = document.createElement("li");
+            listItem.innerText = mk;
+            mataKuliahContainer.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
